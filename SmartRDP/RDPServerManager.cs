@@ -74,7 +74,8 @@ namespace SmartRDP
             RDPServer s = getServerByName(server.Name);
             if (s != null)
             {
-                s = server;
+                if (server.Password != s.Password)
+                    s.Password = server.Password;
             }
             else
             {
