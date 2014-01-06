@@ -17,7 +17,6 @@ namespace SmartRDP
         public App()
         {
             InitializeComponent();
-
             AeroPeekEnabled = true;
             TabRenderer = new ChromeTabRenderer(this);
             Icon = Resources.Emoticons;

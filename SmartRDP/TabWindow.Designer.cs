@@ -116,7 +116,7 @@
             this.panel_connect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_connect.Location = new System.Drawing.Point(0, 0);
             this.panel_connect.Name = "panel_connect";
-            this.panel_connect.Size = new System.Drawing.Size(326, 289);
+            this.panel_connect.Size = new System.Drawing.Size(1264, 986);
             this.panel_connect.TabIndex = 8;
             // 
             // flowLayoutPanel_servers
@@ -127,7 +127,7 @@
             this.flowLayoutPanel_servers.AutoScroll = true;
             this.flowLayoutPanel_servers.Location = new System.Drawing.Point(3, 260);
             this.flowLayoutPanel_servers.Name = "flowLayoutPanel_servers";
-            this.flowLayoutPanel_servers.Size = new System.Drawing.Size(320, 26);
+            this.flowLayoutPanel_servers.Size = new System.Drawing.Size(1258, 723);
             this.flowLayoutPanel_servers.TabIndex = 9;
             // 
             // groupBox_create
@@ -140,7 +140,7 @@
             this.groupBox_create.Controls.Add(this.button_connect);
             this.groupBox_create.Controls.Add(this.label_server);
             this.groupBox_create.Controls.Add(this.textBox_userName);
-            this.groupBox_create.Location = new System.Drawing.Point(-6, 12);
+            this.groupBox_create.Location = new System.Drawing.Point(463, 12);
             this.groupBox_create.Name = "groupBox_create";
             this.groupBox_create.Size = new System.Drawing.Size(325, 195);
             this.groupBox_create.TabIndex = 8;
@@ -154,7 +154,7 @@
             this.rdp.Location = new System.Drawing.Point(0, 0);
             this.rdp.Name = "rdp";
             this.rdp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("rdp.OcxState")));
-            this.rdp.Size = new System.Drawing.Size(326, 289);
+            this.rdp.Size = new System.Drawing.Size(1264, 986);
             this.rdp.TabIndex = 10;
             // 
             // TabWindow
@@ -162,7 +162,7 @@
             this.AcceptButton = this.button_connect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 289);
+            this.ClientSize = new System.Drawing.Size(1264, 986);
             this.Controls.Add(this.panel_connect);
             this.Controls.Add(this.rdp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
