@@ -111,6 +111,7 @@ namespace SmartRDP
         public void ConnectVNC(RDPServer server)
         {
             this.vnc = new VncSharp.RemoteDesktop();
+            this.vnc.Size = new Size(608, 427);
             this.vnc.AutoScroll = true;
             this.vnc.AutoScrollMinSize = new System.Drawing.Size(608, 427);
             this.vnc.Location = new System.Drawing.Point(3, 3);
