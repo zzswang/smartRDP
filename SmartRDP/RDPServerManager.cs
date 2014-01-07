@@ -13,6 +13,14 @@ namespace SmartRDP
     {
         private List<RDPServer> servers = new List<RDPServer>();
 
+        public List<RDPServer> Servers
+        { 
+            get
+            {
+                return servers;
+            }
+        }
+
         private RDPServerManager()
         {
             try
@@ -58,11 +66,11 @@ namespace SmartRDP
             }
         }
 
-        public RDPServer getServerByName(string name)
+        public RDPServer getServerByName(string name, bool isVNC = false)
         {
             foreach (RDPServer server in servers)
             {
-                if (server.Name == name)
+                if (server.Name == name && server.IsVNC == isVNC)
                     return server;
             }
 
@@ -71,7 +79,7 @@ namespace SmartRDP
 
         public void saveOrUpdateServer(RDPServer server)
         {
-            RDPServer s = getServerByName(server.Name);
+            RDPServer s = getServerByName(server.Name, server.IsVNC);
             if (s != null)
             {
                 if (server.Password != s.Password)

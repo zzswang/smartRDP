@@ -39,20 +39,21 @@
             this.panel_connect = new System.Windows.Forms.Panel();
             this.flowLayoutPanel_servers = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox_create = new System.Windows.Forms.GroupBox();
-            this.rdp = new SmartRDP.MyRDP();
+            this.radioButtonRDP = new System.Windows.Forms.RadioButton();
+            this.radioButtonVNC = new System.Windows.Forms.RadioButton();
             this.panel_connect.SuspendLayout();
             this.groupBox_create.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdp)).BeginInit();
             this.SuspendLayout();
             // 
             // button_connect
             // 
             this.button_connect.BackColor = System.Drawing.SystemColors.Control;
             this.button_connect.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button_connect.Location = new System.Drawing.Point(37, 146);
+            this.button_connect.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.button_connect.Location = new System.Drawing.Point(333, 44);
             this.button_connect.Name = "button_connect";
-            this.button_connect.Size = new System.Drawing.Size(247, 36);
-            this.button_connect.TabIndex = 3;
+            this.button_connect.Size = new System.Drawing.Size(117, 72);
+            this.button_connect.TabIndex = 30;
             this.button_connect.Text = "connect";
             this.button_connect.UseVisualStyleBackColor = false;
             this.button_connect.Click += new System.EventHandler(this.connect_Click);
@@ -116,23 +117,24 @@
             this.panel_connect.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel_connect.Location = new System.Drawing.Point(0, 0);
             this.panel_connect.Name = "panel_connect";
-            this.panel_connect.Size = new System.Drawing.Size(1264, 986);
+            this.panel_connect.Size = new System.Drawing.Size(1264, 862);
             this.panel_connect.TabIndex = 8;
             // 
             // flowLayoutPanel_servers
             // 
-            this.flowLayoutPanel_servers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowLayoutPanel_servers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel_servers.AutoScroll = true;
-            this.flowLayoutPanel_servers.Location = new System.Drawing.Point(3, 260);
+            this.flowLayoutPanel_servers.Location = new System.Drawing.Point(3, 644);
             this.flowLayoutPanel_servers.Name = "flowLayoutPanel_servers";
-            this.flowLayoutPanel_servers.Size = new System.Drawing.Size(1258, 723);
+            this.flowLayoutPanel_servers.Size = new System.Drawing.Size(1258, 215);
             this.flowLayoutPanel_servers.TabIndex = 9;
             // 
             // groupBox_create
             // 
             this.groupBox_create.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.groupBox_create.Controls.Add(this.radioButtonVNC);
+            this.groupBox_create.Controls.Add(this.radioButtonRDP);
             this.groupBox_create.Controls.Add(this.textBox_serverName);
             this.groupBox_create.Controls.Add(this.label3);
             this.groupBox_create.Controls.Add(this.textBox_password);
@@ -140,45 +142,56 @@
             this.groupBox_create.Controls.Add(this.button_connect);
             this.groupBox_create.Controls.Add(this.label_server);
             this.groupBox_create.Controls.Add(this.textBox_userName);
-            this.groupBox_create.Location = new System.Drawing.Point(463, 12);
+            this.groupBox_create.Location = new System.Drawing.Point(404, 155);
             this.groupBox_create.Name = "groupBox_create";
-            this.groupBox_create.Size = new System.Drawing.Size(325, 195);
+            this.groupBox_create.Size = new System.Drawing.Size(491, 149);
             this.groupBox_create.TabIndex = 8;
             this.groupBox_create.TabStop = false;
             this.groupBox_create.Text = "create new connection";
             // 
-            // rdp
+            // radioButtonRDP
             // 
-            this.rdp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rdp.Enabled = true;
-            this.rdp.Location = new System.Drawing.Point(0, 0);
-            this.rdp.Name = "rdp";
-            this.rdp.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("rdp.OcxState")));
-            this.rdp.Size = new System.Drawing.Size(1264, 986);
-            this.rdp.TabIndex = 10;
+            this.radioButtonRDP.AutoSize = true;
+            this.radioButtonRDP.Checked = true;
+            this.radioButtonRDP.Location = new System.Drawing.Point(122, 126);
+            this.radioButtonRDP.Name = "radioButtonRDP";
+            this.radioButtonRDP.Size = new System.Drawing.Size(48, 17);
+            this.radioButtonRDP.TabIndex = 3;
+            this.radioButtonRDP.TabStop = true;
+            this.radioButtonRDP.Text = "RDP";
+            this.radioButtonRDP.UseVisualStyleBackColor = true;
+            this.radioButtonRDP.CheckedChanged += new System.EventHandler(this.radioButtonRDP_CheckedChanged);
+            // 
+            // radioButtonVNC
+            // 
+            this.radioButtonVNC.AutoSize = true;
+            this.radioButtonVNC.Location = new System.Drawing.Point(185, 126);
+            this.radioButtonVNC.Name = "radioButtonVNC";
+            this.radioButtonVNC.Size = new System.Drawing.Size(47, 17);
+            this.radioButtonVNC.TabIndex = 4;
+            this.radioButtonVNC.Text = "VNC";
+            this.radioButtonVNC.UseVisualStyleBackColor = true;
+            this.radioButtonVNC.CheckedChanged += new System.EventHandler(this.radioButtonVNC_CheckedChanged);
             // 
             // TabWindow
             // 
             this.AcceptButton = this.button_connect;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1264, 986);
+            this.ClientSize = new System.Drawing.Size(1264, 862);
             this.Controls.Add(this.panel_connect);
-            this.Controls.Add(this.rdp);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TabWindow";
             this.Activated += new System.EventHandler(this.TabWindow_Activated);
             this.panel_connect.ResumeLayout(false);
             this.groupBox_create.ResumeLayout(false);
             this.groupBox_create.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.rdp)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private MyRDP rdp;
         private System.Windows.Forms.Button button_connect;
         private System.Windows.Forms.Label label_server;
         private System.Windows.Forms.Label label2;
@@ -189,6 +202,10 @@
         private System.Windows.Forms.Panel panel_connect;
         private System.Windows.Forms.GroupBox groupBox_create;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel_servers;
+        private MyRDP rdp;
+        private VncSharp.RemoteDesktop vnc;
+        private System.Windows.Forms.RadioButton radioButtonVNC;
+        private System.Windows.Forms.RadioButton radioButtonRDP;
     }
 }
 

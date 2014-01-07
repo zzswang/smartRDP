@@ -35,7 +35,7 @@ namespace SmartRDP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1280, 1024);
+            this.ClientSize = new System.Drawing.Size(1280, 900);
             this.Name = "App";
             this.Text = "SmartRDP";
             this.ResumeLayout(false);

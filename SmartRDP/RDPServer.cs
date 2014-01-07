@@ -14,6 +14,7 @@ namespace SmartRDP
         public string Username { get; set; }
         public string Password { get; set; }    
         public string Description { get; set; }
+        public bool IsVNC { get; set; }
 
         public string PasswordWithSalt
         {
@@ -40,6 +41,11 @@ namespace SmartRDP
         public bool ShouldSerializePassword()
         {
             return false;
+        }
+
+        public string getPassword()
+        {
+            return this.Password;
         }
     }
 }
