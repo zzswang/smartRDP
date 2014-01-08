@@ -33,12 +33,12 @@ namespace SmartRDP
 
         ~TabWindow()
         {
-            if (rdp.Connected == 2)
+            if (this.rdp!=null && rdp.Connected == 2)
             {
-                rdp.Disconnect();
+                this.rdp.Disconnect();
             }
 
-            if (this.vnc.IsConnected)
+            if (this.vnc!=null && this.vnc.IsConnected)
             {
                 this.vnc.Disconnect();
             }
