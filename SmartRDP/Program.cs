@@ -23,7 +23,10 @@ namespace SmartRDP
             app.Tabs.Add(app.CreateTab());
             app.SelectedTabIndex = 0;
 
-            Application.Run(app);
+            TitleBarTabsApplicationContext applicationContext = new TitleBarTabsApplicationContext();
+            applicationContext.Start(app);
+
+            Application.Run(applicationContext);
         }
     }
 }

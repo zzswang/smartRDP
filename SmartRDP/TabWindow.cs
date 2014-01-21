@@ -33,7 +33,7 @@ namespace SmartRDP
 
         ~TabWindow()
         {
-            if (this.rdp!=null && rdp.Connected == 2)
+            if (this.rdp!=null && this.rdp.Connected == 2)
             {
                 this.rdp.Disconnect();
             }
@@ -116,19 +116,33 @@ namespace SmartRDP
             this.vnc.AutoScrollMinSize = new System.Drawing.Size(608, 427);
             this.vnc.Location = new System.Drawing.Point(3, 3);
             this.vnc.Name = "VNC";
-            this.vnc.TabIndex = 10;
+            this.vnc.TabIndex = 1;
+            this.vnc.TabStop = false;
             this.vnc.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.vnc.Enabled = true;
             this.Controls.Add(this.vnc);
+
             this.vnc.ConnectComplete += delegate
             {
                 // 如果连上了 则存储这个server
                 server.IsVNC = true;
                 rdpServerManager.saveOrUpdateServer(server);
                 this.vnc.Focus();
-            }; 
+            };
 
             // Get a host name from the user.
-            string host = server.Name;
+            string[] temp = server.Name.Split(':');
+            string host = temp[0];
+            int display = -1;
+
+            try
+            {
+                if (temp.Length > 1) display = Int32.Parse(temp[1]);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
             // As long as they didn't click Cancel, try to connect
             if (host != null)
@@ -136,7 +150,11 @@ namespace SmartRDP
                 try
                 {
                     this.vnc.GetPassword = new AuthenticateDelegate(server.getPassword);
-                    this.vnc.Connect(host);
+
+                    if (display > 0)
+                        this.vnc.Connect(host, display, false);
+                    else
+                        this.vnc.Connect(host, false);
 
                     //修改tab标签
                     this.Text = server.Name;
@@ -167,7 +185,7 @@ namespace SmartRDP
             string user = textBox_userName.Text;
             RDPServer rdpServerInfo = new RDPServer(server, user, password);
 
-            panel_connect.Hide();
+            this.Controls.Remove(panel_connect);
 
             if (this.radioButtonRDP.Checked)
                 this.ConnectRDP(rdpServerInfo);
@@ -177,7 +195,7 @@ namespace SmartRDP
 
         private void TabWindow_Activated(object sender, EventArgs e)
         {
-            Console.WriteLine("in window");
+            //Console.WriteLine("in window");
             if (this.vnc != null && this.vnc.IsConnected)
                 this.vnc.Focus();
         }

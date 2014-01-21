@@ -17,18 +17,21 @@ namespace SmartRDP
         public App()
         {
             InitializeComponent();
-            AeroPeekEnabled = true;
+
+            AeroPeekEnabled = false;
             TabRenderer = new ChromeTabRenderer(this);
             Icon = Resources.Emoticons;
         }
 
         public override TitleBarTab CreateTab()
         {
-            TitleBarTab tab = new TitleBarTab(this);
-            tab.Content = new TabWindow();
-            Console.WriteLine("tab window is created");
-
-            return tab;
+            return new TitleBarTab(this)
+            {
+                Content = new TabWindow
+                {
+                    Text = "New Tab"
+                }
+            };
         }
     }
 }
