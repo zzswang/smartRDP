@@ -220,6 +220,8 @@ namespace SmartRDP
 
             RDPServer server = rdpServerManager.getServerByName(servername, isVNC);
             panel_connect.Hide();
+            this.AcceptButton = null;
+
             if (isVNC)
                 this.ConnectVNC(server);
             else
