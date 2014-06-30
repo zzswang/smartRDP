@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Stratman.Windows.Forms.TitleBarTabs;
+using EasyTabs;
 using SmartRDP.Properties;
 
 namespace SmartRDP
